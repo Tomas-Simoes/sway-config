@@ -39,7 +39,7 @@ set $background #332b2b
 set $color_urgent #fb4934
 set $text_color #ffffff
 set $title_bg_unfocused #666666
-set $title_outline_active #536889
+set $title_outline_active #c7ab7a
 set $title_outline_unfocused #332b2b
 
 # Set Colors:           Border                   Background          Text          Indicator             Child Border
@@ -57,7 +57,7 @@ gaps outer 3
 default_border pixel 4
 
 # Set the Wallpaper:
-output * bg $HOME/.config/sway/themes/blue/wallpaper.png fill
+output * bg $HOME/.config/sway/themes/bege/wallpaper.jpg fill
 
 
 #====================================#
