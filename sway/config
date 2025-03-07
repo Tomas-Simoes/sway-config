@@ -16,15 +16,21 @@
 # Small fixs to config #
 #========================#
 
-input "type:keyboard" {
-    xkb_layout "pt"
-}
-
 input "type:touchpad" {
     tap enabled
     natural_scroll enabled
 }
 
+input "type:pointer" {
+    accel_profile flat
+    pointer_accel -0.7
+}
+
+input "type:keyboard" {
+    repeat_rate 40 
+}
+
+bindsym Mod4+Shift+p exec export XDG_CURRENT_DESKTOP=sway
 #========================#
 # Appearance and Theming #
 #========================#
@@ -69,20 +75,13 @@ bar {
 # Set the modifier key to super:
 set $mod Mod4
 set $sec Mod5 
+set $workingdir "~/dev/UBI-EI/s_year/s_semester"
 
 # Set up a shortcut to reload this config file:
 bindsym $mod+Shift+v reload
 
 # Quit your current session and return to the log-in manager/tty:
 bindsym $mod+Shift+e exec $HOME/.config/sway/exit.sh
-
-# Screen locking (automatic, with a timeout)
-set $lock swaylock -c 550000
-exec swayidle -w \
-    timeout 600 $lock \
-    timeout 570 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep $lock
 
 # Screen locking (manual)
 set $lock_screen exec bash ~/.config/sway/lock_screen.sh
@@ -134,19 +133,24 @@ bindsym $mod+r mode "resize"
 # Keyboard Shortcuts (Workspaces) #
 #=================================#
 # Switch to workspace
-set $ws1 "Personal"
-set $ws2 "Code"
-set $ws3 "UBI"
+set $ws1 "1 Code"
+set $ws2 "2 Code"
+set $ws3 "3 School"
+set $ws4 "4 Personal"
 
 # Move between workspaces
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+
 
 #=============================#
 # Keyboard Shortcuts (Layout) #
@@ -168,9 +172,6 @@ bindsym $mod+f fullscreen
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+f floating toggle
 
-# Swap focus between the tiling area and the floating area
-bindsym $mod+tab focus mode_toggle
-
 # Move focus to the parent container
 #bindsym $mod+a focus parent
 
@@ -181,7 +182,7 @@ bindsym $mod+tab focus mode_toggle
 # Sway has a "scratchpad", which is a bag of holding for windows.
 # You can send windows there and get them back later.
 
-# Move the currently focused window to the scratchpad
+# Move the currengtly focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
@@ -218,6 +219,8 @@ bindsym ctrl+$mod+f exec pcmanfm
 set $term alacritty
 
 bindsym $mod+t exec $term -e bash -c "neofetch; exec bash; echo"
+bindsym $mod+u exec $term -e bash -c "neofetch; cd $workingdir; exec bash"
+
 # Kill focused window:
 bindsym $mod+Shift+q kill
 
@@ -228,4 +231,4 @@ bindsym $mod+space exec $menu
 # Misc #
 #======#
 include /etc/sway/config-vars.d/
-include /etc/sway/config.d/
+include /etc/sway/config.d/*
