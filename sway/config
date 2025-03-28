@@ -27,7 +27,9 @@ input "type:pointer" {
 }
 
 input "type:keyboard" {
+    
     repeat_rate 40 
+    xkb_layout "pt"
 }
 
 bindsym Mod4+Shift+p exec export XDG_CURRENT_DESKTOP=sway
@@ -35,12 +37,13 @@ bindsym Mod4+Shift+p exec export XDG_CURRENT_DESKTOP=sway
 # Appearance and Theming #
 #========================#
 # Declare Colors:
-set $background #332b2b
-set $color_urgent #fb4934
-set $text_color #ffffff
-set $title_bg_unfocused #666666
-set $title_outline_active #536889
-set $title_outline_unfocused #332b2b
+set $background #2B2D29
+set $color_urgent #EBB9A2
+set $text_color #4F4E53
+set $title_bg_unfocused #54656C
+set $title_outline_active #725B50
+set $title_outline_unfocused #332B2B
+
 
 # Set Colors:           Border                   Background          Text          Indicator             Child Border
 client.background       $background
@@ -57,7 +60,7 @@ gaps outer 3
 default_border pixel 4
 
 # Set the Wallpaper:
-output * bg $HOME/.config/sway/themes/blue/wallpaper.png fill
+output * bg $HOME/.config/sway/themes/nature/wallpaper.jpg fill
 
 
 #====================================#
@@ -133,10 +136,10 @@ bindsym $mod+r mode "resize"
 # Keyboard Shortcuts (Workspaces) #
 #=================================#
 # Switch to workspace
-set $ws1 "1 Code"
-set $ws2 "2 Code"
-set $ws3 "3 School"
-set $ws4 "4 Personal"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
 
 # Move between workspaces
 bindsym $mod+1 workspace $ws1
@@ -199,9 +202,11 @@ bindsym XF86AudioLowerVolume exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; pk
 bindsym XF86AudioMute exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; pkill -RTMIN+8 waybar"
 
 # Brightness
-bindsym XF86MonBrightnessDown exec light -U 10
-bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec brightnessctl set -10
+bindsym XF86MonBrightnessUp exec brightnessctl set +10
 
+# Screenshot
+bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy
 
 #=============================================#
 # Keyboard Shortcuts (launching applications) #
@@ -218,8 +223,8 @@ bindsym ctrl+$mod+f exec pcmanfm
 # Open a terminal emulator:
 set $term alacritty
 
-bindsym $mod+t exec $term -e bash -c "neofetch; exec bash; echo"
-bindsym $mod+u exec $term -e bash -c "neofetch; cd $workingdir; exec bash"
+bindsym $mod+t exec $term -e bash -c "exec bash; echo"
+bindsym $mod+u exec $term -e bash -c "cd $workingdir; exec bash"
 
 # Kill focused window:
 bindsym $mod+Shift+q kill
