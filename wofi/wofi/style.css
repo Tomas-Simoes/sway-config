@@ -1,0 +1,58 @@
+/* General settings for all elements */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Consolas, Menlo, "DejaVu Sans Mono", monospace;
+    font-weight: 500;
+    font-size: 15.5px;
+    padding: 0;
+    color: #EBB9A2; /* Apricot */
+}
+
+/* Outer window styling */
+window {
+    margin: 15px;
+    border: 3px solid #725B50; /* Subtle brown outer border */
+    background-color: #2B2D29; /* Jet */
+}
+
+/* Input box styling */
+#input {
+    margin: 10px;
+    background-color: #2B2D29; /* Jet */
+    color: #EBB9A2; /* Apricot */
+}
+
+/* Inner box styling */
+#inner-box {
+    margin: 5px; /* Removed margin to eliminate border between outer and inner spaces */
+    background-color: #2B2D29; /* Outer Space */
+    color: #EBB9A2; /* Apricot */
+}
+
+/* Text styling for search results */
+#text {
+    margin: 5px;
+    background-color: transparent;
+    color: #EBB9A2; /* Apricot */
+}
+
+/* Styling for the selected application */
+#entry:selected {
+    background-color: #4F4E53; /* Davy's Gray */
+    color: #EBB9A2; /* Apricot */
+}
+
+/* Scrollbar styling */
+#scroll {
+    margin: 10px;
+    padding: 2px;
+    border: 1px solid #EBB9A2; /* Payne's Gray */
+    background-color: #2B2D29; /* Outer Space */
+}
+
+/* Remove the search icon */
+#input > image.left {
+    margin-right: 10px;
+    color: #EBB9A2;
+}

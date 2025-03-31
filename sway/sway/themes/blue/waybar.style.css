@@ -1,0 +1,109 @@
+:root {
+  /* CSS HEX */
+--jet: #2B2D29ff;
+--apricot: #EBB9A2ff;
+--davys-gray: #4F4E53ff;
+--paynes-gray: #54656Cff;
+--outer-space: #354242ff;
+
+/* CSS HSL */
+--jet: hsla(90, 5%, 17%, 1);
+--apricot: hsla(19, 65%, 78%, 1);
+--davys-gray: hsla(252, 3%, 32%, 1);
+--paynes-gray: hsla(198, 13%, 38%, 1);
+--outer-space: hsla(180, 11%, 23%, 1);
+}
+
+* {
+  border: none;
+  border-radius: 0;
+
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  
+  min-height: 0;
+  font-weight: 500;
+  font-size: 15.5px;
+  
+  padding: 0;
+  color: white
+}
+
+
+
+window#waybar {
+  background: rgba(31, 32, 49, 0.7);
+  border: 2px solid rgb(31, 32, 49);
+}
+
+tooltip {
+  background-color: #1d2021;
+  border: 2px solid #7c6f64;
+}
+
+#clock,
+#tray,
+#cpu,
+#memory,
+#battery,
+#network,
+#pulseaudio {
+  margin: 6px 6px 6px 0px;
+  padding: 2px 8px;
+}
+
+#workspaces {
+  background-color: #3E4860;
+  border-radius: 5px;
+  color: white;
+
+  margin: 6px 0px 6px 6px;
+
+}
+
+#workspaces button {
+  all: initial;
+  min-width: 0;
+  box-shadow: inset 0 -3px transparent;
+  padding: 2px 4px;
+  color: white;
+}
+
+#workspaces button.focused {
+  color: #abc2f7;
+}
+
+#workspaces button.urgent {
+  background-color: #232e48;
+}
+
+#clock {
+  background-color: #232e48;
+  border-radius: 5px;
+  color: white;
+}
+
+#tray,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio {
+  background-color: #3E4860;
+  border-radius: 5px;
+  color: white;
+}
+
+#cpu.critical,
+#memory.critical {
+  background-color: #ddc7a1;
+  border: 2px solid #c7ab7a;
+  color: #c14a4a;
+}
+
+#battery.warning,
+#battery.critical,
+#battery.urgent {
+  background-color: #3E4860;
+  border-radius: 5px;
+  color: #c14a4a;
+}
